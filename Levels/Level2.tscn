@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Tiles/bg_sprite_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Tiles/bg_sprite_sheet_2.png" type="Texture" id=2]
+[ext_resource path="res://Player/gu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level2.gd" type="Script" id=4]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "end"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 2.3, 2.8, 3.6, 3.7, 3.8, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 304, 448 ), Vector2( 304, 448 ), Vector2( 344, 448 ), Vector2( 344, 448 ), Vector2( 344, 448 ), Vector2( 336, 448 ), Vector2( 344, 448 ), Vector2( 336, 448 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Gu/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 2.1, 2.3, 2.8, 2.9, 3.1, 4.2, 4.3, 4.4, 4.5, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 2, 0, 0, 3, 0, 19, 19, 20, 21, 22 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite4:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "quit"
+} ]
+}
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 636, 368 )
+scale = Vector2( 82.5, 48 )
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 8
+frame = 56
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 616, 432 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+offset = Vector2( -2, -4 )
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 680, 432 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+offset = Vector2( -2, -4 )
+hframes = 8
+vframes = 8
+frame = 33
+
+[node name="Gu" parent="." instance=ExtResource( 3 )]
+position = Vector2( 464, 448 )
+gravity = 0
+is_controlable = false
+
+[node name="AnimationTree" parent="Gu" index="4"]
+active = false
+parameters/playback = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "end"
+anims/end = SubResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 636, 368 )
+scale = Vector2( 82.5, 48 )
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 8
+frame = 56
+
+[editable path="Gu"]
