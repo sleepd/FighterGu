@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ove Melaa - High Stakes,Low Chances.mp3-aba92b521a945862707facbd3fd7dd6e.mp3str"
+
+[deps]
+
+source_file="res://Music/Ove Melaa - High Stakes,Low Chances.mp3"
+dest_files=[ "res://.import/Ove Melaa - High Stakes,Low Chances.mp3-aba92b521a945862707facbd3fd7dd6e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
