@@ -10,3 +10,4 @@ You can download it from here: https://godotengine.org/download/3.x
 ASWD / Arrow keys- Move
 J - Attack
 Space - Jump
+E - Interactive
