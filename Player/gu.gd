@@ -79,7 +79,8 @@ func _check_input():
 			else:
 				state_machine.travel("Idle")
 		
-		# 攻击	
+		# 攻击
+		# Attack
 		if Input.is_action_just_pressed("attack") and is_on_floor():
 			if $AtkTimer.is_stopped():
 				atk_sta = 1
@@ -88,10 +89,12 @@ func _check_input():
 			is_controlable = false
 			atk_sta += 1
 			# 打完第三招后变回第一招
+			# Back to the first move
 			if atk_sta >=4:
 				atk_sta = 1
 					
 		# 跳跃
+		# Jump
 		if Input.is_action_just_pressed("jump") and is_on_floor(): 
 			velocity.y -= jump_force
 			$AudioStreamPlayer2D.stream = jumpSound
@@ -99,6 +102,7 @@ func _check_input():
 			jump = true
 			
 		# 爬楼梯
+		# Climb Ladder
 		if on_ladder:
 			if Input.is_action_pressed("up"):
 				# 判断是否已经站在梯子顶端
